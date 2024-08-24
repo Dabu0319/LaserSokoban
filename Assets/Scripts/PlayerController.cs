@@ -5,16 +5,18 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    Vector2 moveDir;
+    public Vector2 moveDir;
     public LayerMask detectLayer;
     
     
-    public float raycastDistance = 1.5f;
+    public float raycastDistance = 1.0f;
+    public event Action<Vector2> OnMoveSuccess; // 事件声明
     
     public GameObject upSprite;
     public GameObject downSprite;
     public GameObject leftSprite;
     public GameObject rightSprite;
+    public Vector2 lastMoveDir;
     
     [SerializeField]
     private Vector2 currentDir;
@@ -38,6 +40,8 @@ public class PlayerController : MonoBehaviour
             if(CanMoveToDir(moveDir))
             {
                 Move(moveDir);
+                lastMoveDir = moveDir; // 更新最后的移动方向
+                OnMoveSuccess?.Invoke(lastMoveDir); // 触发事件
             }
         }
 
@@ -71,4 +75,6 @@ public class PlayerController : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawLine(transform.position, (Vector2)transform.position + Vector2.down * raycastDistance);
     }
+
+    
 }

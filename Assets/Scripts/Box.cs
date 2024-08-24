@@ -10,7 +10,6 @@ public class Box : MonoBehaviour
     private void Start()
     {
         originColor = GetComponent<SpriteRenderer>().color;
-        FindObjectOfType<GameManager>().totalBoxs++;
     }
 
     public bool CanMoveToDir(Vector2 dir)
@@ -26,22 +25,9 @@ public class Box : MonoBehaviour
         return false;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void DestroyBox()
     {
-        if(collision.CompareTag("Target"))
-        {
-            FindObjectOfType<GameManager>().finishedBoxs++;
-            FindObjectOfType<GameManager>().CheckFinish();
-            GetComponent<SpriteRenderer>().color = finishColor;
-        }
+        Destroy(gameObject, 0.25f); // 1f 表示延迟 1 秒
     }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Target"))
-        {
-            FindObjectOfType<GameManager>().finishedBoxs--;
-            GetComponent<SpriteRenderer>().color = originColor;
-        }
-    }
+    
 }

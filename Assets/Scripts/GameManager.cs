@@ -7,7 +7,8 @@ public class GameManager : MonoBehaviour
 {
     public int totalBoxs;
     public int finishedBoxs;
-
+    public bool destination = false;
+    
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))
@@ -16,12 +17,19 @@ public class GameManager : MonoBehaviour
 
     public void CheckFinish()
     {
-        if(finishedBoxs == totalBoxs)
-        {
+        // if(finishedBoxs == totalBoxs)
+        // {
+        //     print("YOU WIN!");
+        //     StartCoroutine(LoadNextStage());
+        // }
+
+        if(destination == true){
             print("YOU WIN!");
-            StartCoroutine(LoadNextStage());
+            // StartCoroutine(LoadNextStage());
         }
     }
+
+
 
     void ResetStage()
     {
