@@ -7,11 +7,35 @@ public class Box : MonoBehaviour
     public Color finishColor;
     Color originColor;
 
-    private void Start()
-    {
+    private void Awake(){
         originColor = GetComponent<SpriteRenderer>().color;
+        FindObjectOfType<GameManager>().totalBoxs++;
+    }
+    
+    public void Start()
+    {
+
     }
 
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Target"))
+        {
+            FindObjectOfType<GameManager>().finishedBoxs++;
+            FindObjectOfType<GameManager>().CheckFinish();
+            GetComponent<SpriteRenderer>().color = finishColor;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Target"))
+        {
+            FindObjectOfType<GameManager>().finishedBoxs--;
+            GetComponent<SpriteRenderer>().color = originColor;
+        }
+    }
     public bool CanMoveToDir(Vector2 dir)
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position + (Vector3)dir * 0.5f, dir, 0.5f);
@@ -27,7 +51,7 @@ public class Box : MonoBehaviour
 
     public void DestroyBox()
     {
-        Destroy(gameObject, 0.25f); // 1f 表示延迟 1 秒
+        Destroy(gameObject, 0.5f); // 1f 表示延迟 1 秒
+
     }
-    
 }

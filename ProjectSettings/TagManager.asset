@@ -9,6 +9,9 @@ TagManager:
   - End
   - Box
   - IronBox
+  - Refractive
+  - BadPeople
+  - Good People
   layers:
   - Default
   - TransparentFX
@@ -20,8 +23,8 @@ TagManager:
   - Player
   - Wall
   - Box
-  - 
-  - 
+  - Refractive
+  - RefractiveBox
   - 
   - 
   - 

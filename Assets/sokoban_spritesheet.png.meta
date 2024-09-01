@@ -340,7 +340,7 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -348,6 +348,69 @@ TextureImporter:
       bones: []
       spriteID: c4106b63fc6220944853d842a8587f61
       internalID: -244651683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sokoban_spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 535
+        width: 63
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 954244fa913d6ae4f9a6eda3c709251e
+      internalID: -74412373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sokoban_spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 342
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc387c28e233b12498c41282bb7fdf2b
+      internalID: -1891685713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sokoban_spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 343
+        width: 65
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27f43cd6a17e1504fa7ee12724806722
+      internalID: -509196559
       vertices: []
       indices: 
       edges: []
@@ -365,6 +428,8 @@ TextureImporter:
     nameFileIdTable:
       sokoban_spritesheet_0: 21300000
       sokoban_spritesheet_1: 21300002
+      sokoban_spritesheet_10: -1891685713
+      sokoban_spritesheet_11: -509196559
       sokoban_spritesheet_2: 21300004
       sokoban_spritesheet_3: 21300006
       sokoban_spritesheet_4: 21300008
@@ -372,6 +437,7 @@ TextureImporter:
       sokoban_spritesheet_6: 275183208
       sokoban_spritesheet_7: -1549753261
       sokoban_spritesheet_8: -244651683
+      sokoban_spritesheet_9: -74412373
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

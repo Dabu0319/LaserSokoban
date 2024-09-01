@@ -4,118 +4,96 @@ using UnityEngine;
 
 public class LaserController : MonoBehaviour
 {
-    public Transform player; // 玩家的Transform
-    public PlayerController playerController; // 玩家控制器的引用
-    public float maxDistance = 5f; // 最大射线距离
-    private LineRenderer lineRenderer; // 线渲染器
-    public LayerMask layerMask; // 碰撞层筛选
-    public LayerMask triggerLayerMask; // 用于触发器的碰撞层
-    private Vector3 currentLaserDirection; // 当前激光方向
-    private Vector3 currentTriggerDirection; // 当前触发器方向
+    public Transform player;
+    public PlayerController playerController;
+    public float maxDistance = 5f;
+    private LineRenderer lineRenderer;
+    public LayerMask layerMask;
+    private Vector2 currentDirection;
+    public GameObject triggerPrefab; // 触发器预制体
 
-    public enum Direction { Left, Right, Up, Down } // 方向枚举
-    public Direction initialDirection; // 初始方向设置
-    public float triggerDistance; // 触发器长度
-    private EdgeCollider2D triggerCollider; // 触发器组件
-    public 
+    public enum Direction { Left, Right, Up, Down }
+    public Direction initialDirection;
+    private List<GameObject> triggers = new List<GameObject>(); // 存储所有触发器实例
 
     void Start()
     {
         lineRenderer = GetComponent<LineRenderer>();
-        lineRenderer.positionCount = 2;
-        triggerCollider = GetComponent<EdgeCollider2D>(); // 获取触发器组件
-        SetInitialDirection(); // 设置初始激光和触发器方向
-    }
-
-    void SetInitialDirection()
-    {
-        switch (initialDirection)
-        {
-            case Direction.Left:
-                currentLaserDirection = Vector2.left;
-                currentTriggerDirection = Vector2.left;
-                break;
-            case Direction.Right:
-                currentLaserDirection = Vector2.right;
-                currentTriggerDirection = Vector2.right;
-                break;
-            case Direction.Up:
-                currentLaserDirection = Vector2.up;
-                currentTriggerDirection = Vector2.up;
-                break;
-            case Direction.Down:
-                currentLaserDirection = Vector2.down;
-                currentTriggerDirection = Vector2.down;
-                break;
-        }
-        transform.right = currentLaserDirection; // 初始化激光方向
+        currentDirection = DirectionToVector2(initialDirection);
+        transform.right = currentDirection;
     }
 
     void Update()
     {
-        if (playerController != null)
+        Vector2 moveDirection = playerController.lastMoveDir;
+        if (moveDirection != Vector2.zero && Vector2.Dot(currentDirection, moveDirection) >= 0)
         {
-            Vector2 moveDirection = playerController.lastMoveDir;
-
-            if (moveDirection != Vector2.zero && !AreDirectionsOpposite(currentLaserDirection, moveDirection))
-            {
-                currentLaserDirection = new Vector3(moveDirection.x, moveDirection.y, 0);
-                currentTriggerDirection = new Vector3(moveDirection.x, moveDirection.y, 0);
-                transform.right = currentLaserDirection; // 更新激光发射器的方向
-                UpdateTriggerDirection(); // 更新触发器的方向
-                Debug.Log("Laser direction updated to: " + currentLaserDirection);
-            }
-
+            currentDirection = moveDirection;
+            transform.right = currentDirection;
         }
-        EmitLaser(); // 发射激光
-        ControlTrigger(); // 控制触发器
+
+        Vector2 start = (Vector2)player.position + currentDirection * 0.2f;
+        ClearTriggers();
+        UpdateLaserAndTrigger(start, currentDirection, maxDistance, 0);
     }
 
-    bool AreDirectionsOpposite(Vector3 dir1, Vector2 dir2)
+    private void ClearTriggers()
     {
-        return Vector2.Dot(dir1, dir2) < 0;
-    }
-
-    void EmitLaser()
-    {
-        Vector2 start = (Vector2)playerController.transform.position + (Vector2)currentLaserDirection.normalized * 0.2f;
-        Vector2 direction = currentLaserDirection;
-
-        RaycastHit2D hit = Physics2D.Raycast(start, direction, maxDistance, layerMask);
-
-        if (hit.collider != null)
+        foreach (var trigger in triggers)
         {
-            lineRenderer.SetPosition(0, start);
-            lineRenderer.SetPosition(1, hit.point);
-            triggerDistance = Vector2.Distance(start, hit.point); // 计算两点直接距离
+            Destroy(trigger);
+        }
+        triggers.Clear();
+    }
+
+    private void UpdateLaserAndTrigger(Vector2 start, Vector2 direction, float distance, int reflections)
+    {
+        if (reflections > 5) return;
+
+        RaycastHit2D hit = Physics2D.Raycast(start, direction, distance, layerMask);
+        Vector2 end = hit.collider ? hit.point : start + direction * distance;
+        end += direction.normalized * 0.3f; // 增加0.3f长度
+        lineRenderer.positionCount = reflections + 2;
+        lineRenderer.SetPosition(reflections, start);
+
+        CreateTrigger(start, end); // 创建触发器
+
+        if (hit.collider && hit.collider.tag == "Refractive")
+        {
+            Vector2 newDirection = Vector2.Reflect(direction, hit.normal);
+            Vector2 reflectionStart = hit.point + newDirection * 0.01f;
+            float newDistance = distance - hit.distance + 0.3f;
+            UpdateLaserAndTrigger(reflectionStart, newDirection, newDistance, reflections + 1);
         }
         else
         {
-            lineRenderer.SetPosition(0, start);
-            lineRenderer.SetPosition(1, start + direction * maxDistance);
-            triggerDistance = maxDistance;
+            lineRenderer.SetPosition(reflections + 1, end);
         }
     }
 
-    void ControlTrigger()
+    private void CreateTrigger(Vector2 start, Vector2 end)
     {
-        // 设置触发器的位置
-        triggerCollider.transform.position = (Vector2)playerController.transform.position + (Vector2)currentLaserDirection.normalized * 0.2f;
+        GameObject trigger = Instantiate(triggerPrefab, Vector2.zero, Quaternion.identity);
+        trigger.transform.position = (start + end) / 2;
+        trigger.transform.right = (end - start).normalized;
 
-        // 设置触发器的长度
-        Vector2[] points = new Vector2[]
-        {
-            Vector2.zero,
-            new Vector2(triggerDistance, 0)
-        };
-        triggerCollider.points = points;
-        Debug.Log("Trigger distance: " + triggerDistance);
+        float length = Vector2.Distance(start, end);
+        length += 0.3f; // 触发器长度增加0.3f
+        EdgeCollider2D edgeCollider = trigger.GetComponent<EdgeCollider2D>();
+        edgeCollider.points = new Vector2[] { new Vector2(-length / 2, 0), new Vector2(length / 2, 0) };
+
+        triggers.Add(trigger);
     }
 
-    void UpdateTriggerDirection()
+    private Vector2 DirectionToVector2(Direction dir)
     {
-        // 调整触发器的方向，使其朝向 currentTriggerDirection
-        float angle = Mathf.Atan2(currentTriggerDirection.y, currentTriggerDirection.x) * Mathf.Rad2Deg;
-        triggerCollider.transform.rotation = Quaternion.Euler(0, 0, angle);
+        switch (dir)
+        {
+            case Direction.Left: return Vector2.left;
+            case Direction.Right: return Vector2.right;
+            case Direction.Up: return Vector2.up;
+            case Direction.Down: return Vector2.down;
+        }
+        return Vector2.right;
     }
 }

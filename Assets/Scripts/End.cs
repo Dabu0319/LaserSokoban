@@ -5,48 +5,53 @@ using UnityEngine.SceneManagement; // 确保包含这个命名空间
 
 public class End : MonoBehaviour
 {
-void OnTriggerEnter2D(Collider2D other)
-{
-    if (other.CompareTag("Laser"))
+
+    public bool openend = false;
+    public Sprite initialSprite; // 初始精灵
+    public Sprite newSprite; // 之后的精灵
+    private SpriteRenderer spriteRenderer; // 添加一个 SpriteRenderer 变量
+    private void Start()
     {
-        // 如果是激光触发，则进行延迟销毁
-        StartCoroutine(DelayedDestruction());
+        spriteRenderer = GetComponent<SpriteRenderer>(); // 获取 SpriteRenderer 组件
+        OpenColor();
     }
 
-    // 检查触碰的物体是否属于Player
-    if (other.CompareTag("Player"))
+
+    void OnTriggerEnter2D(Collider2D other)
     {
-        var gameManager = FindObjectOfType<GameManager>();
-        if (gameManager != null)
+        // 检查触碰的物体是否属于Player
+        if (other.CompareTag("Player"))
         {
-            gameManager.destination = true;
-            gameManager.CheckFinish();
+            openend = true;
+            var gameManager = FindObjectOfType<GameManager>();
+            if (gameManager != null)
+            {
+                gameManager.destination = true;
+                gameManager.CheckFinish();
+            }
+            else
+            {
+                Debug.LogError("GameManager not found in the scene.");
+            }
         }
-        else
-        {
-            Debug.LogError("GameManager not found in the scene.");
-        }
-}
 
-}
-    IEnumerator DelayedDestruction()
-    {
-        // 等待一秒钟
-        yield return new WaitForSeconds(0.25f);
-
-        // 销毁当前物体（即带有"End"标签的物体）
-        Destroy(gameObject);
-
-        // 调用游戏失败的逻辑
-        GameOver();
     }
 
-    void GameOver()
+    public void DestroyEnd()
     {
-        // 这里可以扩展游戏失败的逻辑，比如显示失败消息、播放失败音效等
-        Debug.Log("Game Over! You have failed.");
-
-        // 重新加载当前场景以重启关卡
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        if (openend == false){
+        Destroy(gameObject, 0.5f);
+        FindObjectOfType<Laseritem>().GameOver();
+        
+        }
     }
+
+    public void OpenColor(){
+        if(FindObjectOfType<GameManager>().BadGays == true){
+            spriteRenderer.sprite = initialSprite; // 更改为新的精灵
+        }else{
+            spriteRenderer.sprite = newSprite;
+        }
+    }
+
 }

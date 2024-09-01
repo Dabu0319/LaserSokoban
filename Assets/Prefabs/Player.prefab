@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5634958190667589726}
   - component: {fileID: 9220588237958994270}
   - component: {fileID: 6502627043431749096}
+  - component: {fileID: 2720662644208323634}
   m_Layer: 0
   m_Name: Laser
   m_TagString: Laser
@@ -155,12 +156,10 @@ MonoBehaviour:
   maxDistance: 20
   layerMask:
     serializedVersion: 2
-    m_Bits: 256
-  triggerLayerMask:
-    serializedVersion: 2
-    m_Bits: 256
-  initialDirection: 2
-  triggerDistance: 0
+    m_Bits: 1792
+  triggerPrefab: {fileID: 7771284809588762506, guid: 8d742ea32bcc3654fbd5f21131bc1418,
+    type: 3}
+  initialDirection: 0
 --- !u!68 &6502627043431749096
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -168,7 +167,7 @@ EdgeCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5017019047494530539}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -202,6 +201,18 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &2720662644208323634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5017019047494530539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1e6060be615d0a42954b5110f4a3e49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6556373268839623257
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,7 +230,7 @@ GameObject:
   - component: {fileID: 1405931658050440502}
   m_Layer: 7
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -280,7 +291,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: ab73b148b99534b4e9b4f7c683212cbb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -379,7 +390,7 @@ MonoBehaviour:
   moveDir: {x: 0, y: 0}
   detectLayer:
     serializedVersion: 2
-    m_Bits: 768
+    m_Bits: 2816
   raycastDistance: 1
   upSprite: {fileID: 0}
   downSprite: {fileID: 0}
