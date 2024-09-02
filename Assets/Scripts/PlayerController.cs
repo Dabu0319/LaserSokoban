@@ -76,5 +76,16 @@ public class PlayerController : MonoBehaviour
         Gizmos.DrawLine(transform.position, (Vector2)transform.position + Vector2.down * raycastDistance);
     }
 
-    
+     private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("BadPeople"))
+        {
+            BadPeople badPeople = other.GetComponent<BadPeople>();
+            if (badPeople != null)
+            {
+                FindObjectOfType<Laseritem>().GameOver();
+            }
+        }
+
+    }
 }
