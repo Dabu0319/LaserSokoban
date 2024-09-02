@@ -15,6 +15,7 @@ public class End : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>(); // 获取 SpriteRenderer 组件
         OpenColor();
     }
+    
 
 
     void OnTriggerEnter2D(Collider2D other)

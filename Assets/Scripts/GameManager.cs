@@ -13,10 +13,6 @@ public class GameManager : MonoBehaviour
     public int finishBadPeople;
     public bool BadGays = false;
 
-    public void Awake(){
-        BadPeoplezero();
-    }
-
     public void Start()
     {
         endpoint = GameObject.Find("End");
@@ -31,6 +27,7 @@ public class GameManager : MonoBehaviour
                 Debug.LogError("未能找到名为 'End' 的物体！");
             }
             finishBadPeople = totalBadPeople;
+            BadPeoplezero();
     }
     
     private void Update()
