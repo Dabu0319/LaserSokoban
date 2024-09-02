@@ -13,7 +13,7 @@ public class Laseritem : MonoBehaviour
             if (box != null)
             {
                 box.DestroyBox();
-                GameOver();
+                FindObjectOfType<GameManager>().ResetStage();
             }
         }
 
@@ -34,7 +34,7 @@ public class Laseritem : MonoBehaviour
             if (goodPeople != null)
             {
                 goodPeople.DestroyGoodPeople();
-                GameOver();
+                FindObjectOfType<GameManager>().ResetStage();
             }
         }
 
@@ -50,13 +50,5 @@ public class Laseritem : MonoBehaviour
             }
         }
 
-    }
-    public void GameOver()
-    {
-        // 这里可以扩展游戏失败的逻辑，比如显示失败消息、播放失败音效等
-        Debug.Log("Game Over! You have failed.");
-
-        // 重新加载当前场景以重启关卡
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

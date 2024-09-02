@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void ResetStage()
+    public void ResetStage()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }

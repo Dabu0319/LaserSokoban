@@ -83,7 +83,7 @@ public class PlayerController : MonoBehaviour
             BadPeople badPeople = other.GetComponent<BadPeople>();
             if (badPeople != null)
             {
-                FindObjectOfType<Laseritem>().GameOver();
+                FindObjectOfType<GameManager>().ResetStage();
             }
         }
 

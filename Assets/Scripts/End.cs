@@ -42,7 +42,7 @@ public class End : MonoBehaviour
     {
         if (openend == false){
         Destroy(gameObject, 0.5f);
-        FindObjectOfType<Laseritem>().GameOver();
+        FindObjectOfType<GameManager>().ResetStage();
         
         }
     }
