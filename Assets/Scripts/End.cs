@@ -13,7 +13,7 @@ public class End : MonoBehaviour
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>(); // 获取 SpriteRenderer 组件
-        OpenColor();
+        // OpenColor();
     }
     
 
@@ -35,8 +35,19 @@ public class End : MonoBehaviour
                 Debug.LogError("GameManager not found in the scene.");
             }
         }
-
     }
+
+        void OnTriggerExit2D(Collider2D collision)
+    {
+        // 检查触碰的物体是否属于Player
+        if (collision.CompareTag("Player"))
+        {
+            var gameManager = FindObjectOfType<GameManager>();
+            gameManager.destination = false;
+            openend = false;
+        }
+    }
+
 
     public void DestroyEnd()
     {
@@ -49,7 +60,7 @@ public class End : MonoBehaviour
 
     public void OpenColor(){
         if(FindObjectOfType<GameManager>().BadGays == true){
-            spriteRenderer.sprite = initialSprite; // 更改为新的精灵
+            spriteRenderer.sprite = initialSprite;
         }else{
             spriteRenderer.sprite = newSprite;
         }

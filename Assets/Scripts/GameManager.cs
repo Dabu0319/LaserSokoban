@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
             }
             finishBadPeople = totalBadPeople;
             BadPeoplezero();
+            FindObjectOfType<End>().OpenColor();
     }
     
     private void Update()
@@ -39,14 +40,7 @@ public class GameManager : MonoBehaviour
 
     public void CheckFinish()
     {
-        End end =  gameObject.GetComponent<End>();
-        if(finishedBoxs == totalBoxs)
-        {
-            endpoint.SetActive(true);
-        }
-
-
-
+        Boxdisplay();
         if((destination == true) && (BadGays == true)){
             print("YOU WIN!");
             // StartCoroutine(LoadNextStage());
@@ -69,5 +63,12 @@ public class GameManager : MonoBehaviour
             BadGays = true;
         }
 
+    }
+
+    public void Boxdisplay(){
+        if (finishedBoxs == totalBoxs)
+        {
+            endpoint.SetActive(true);
+        }
     }
 }

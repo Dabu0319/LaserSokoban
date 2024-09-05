@@ -13,8 +13,10 @@ public class Laseritem : MonoBehaviour
             if (box != null)
             {
                 box.DestroyBox();
-                FindObjectOfType<GameManager>().ResetStage();
+                // FindObjectOfType<GameManager>().ResetStage();
             }
+            FindObjectOfType<GameManager>().Boxdisplay();
+            
         }
 
         if (other.CompareTag("End"))

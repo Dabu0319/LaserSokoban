@@ -9,7 +9,7 @@ public class Box : MonoBehaviour
 
     private void Awake(){
         originColor = GetComponent<SpriteRenderer>().color;
-        FindObjectOfType<GameManager>().totalBoxs++;
+        // FindObjectOfType<GameManager>().totalBoxs++;
     }
     
     public void Start()
@@ -51,7 +51,8 @@ public class Box : MonoBehaviour
 
     public void DestroyBox()
     {
-        Destroy(gameObject, 0.5f); // 1f 表示延迟 1 秒
+        // FindObjectOfType<GameManager>().totalBoxs--;
+        Destroy(gameObject); // 1f 表示延迟 1 秒
 
     }
 }
