@@ -5,15 +5,16 @@ using UnityEngine.SceneManagement; // 确保包含这个命名空间
 
 public class End : MonoBehaviour
 {
-
     public bool openend = false;
     public Sprite initialSprite; // 初始精灵
     public Sprite newSprite; // 之后的精灵
     private SpriteRenderer spriteRenderer; // 添加一个 SpriteRenderer 变量
+    public GameManager gameManager;
+  
     private void Start()
     {
+        gameManager = GetComponent<GameManager>();
         spriteRenderer = GetComponent<SpriteRenderer>(); // 获取 SpriteRenderer 组件
-        // OpenColor();
     }
     
 
@@ -48,21 +49,27 @@ public class End : MonoBehaviour
         }
     }
 
-
     public void DestroyEnd()
     {
         if (openend == false){
+        Invoke("ResetGameStage", 0.4f);  // 延迟1.0秒后调用ResetGameStage方法
         Destroy(gameObject, 0.5f);
-        FindObjectOfType<GameManager>().ResetStage();
-        
         }
     }
 
+    private void ResetGameStage()
+{
+    FindObjectOfType<GameManager>().ResetStage();  // 调用GameManager中的ResetStage方法
+}
+
+
     public void OpenColor(){
-        if(FindObjectOfType<GameManager>().BadGays == true){
-            spriteRenderer.sprite = initialSprite;
-        }else{
+        var gameManager = FindObjectOfType<GameManager>();
+        Debug.Log(gameManager.BadGays);
+        if(FindObjectOfType<GameManager>().BadGays == false){
             spriteRenderer.sprite = newSprite;
+        }else{
+            spriteRenderer.sprite = initialSprite;
         }
     }
 

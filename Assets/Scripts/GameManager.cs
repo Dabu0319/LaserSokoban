@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public int totalBadPeople;    
     public int finishBadPeople;
     public bool BadGays = false;
+    
 
     public void Start()
     {
@@ -26,7 +27,10 @@ public class GameManager : MonoBehaviour
             {
                 Debug.LogError("未能找到名为 'End' 的物体！");
             }
+            
             finishBadPeople = totalBadPeople;
+            Debug.Log("finish people" + finishBadPeople);
+
             BadPeoplezero();
             FindObjectOfType<End>().OpenColor();
     }
@@ -61,6 +65,8 @@ public class GameManager : MonoBehaviour
     public void BadPeoplezero(){
         if (finishBadPeople == 0){
             BadGays = true;
+        }else{
+            BadGays = false;
         }
 
     }
