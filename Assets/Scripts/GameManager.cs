@@ -69,6 +69,8 @@ public class GameManager : MonoBehaviour
         if (finishedBoxs == totalBoxs)
         {
             endpoint.SetActive(true);
+        }else{
+            endpoint.SetActive(false);
         }
     }
 }
