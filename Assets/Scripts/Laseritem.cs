@@ -5,8 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class Laseritem : MonoBehaviour
 {
+    public End end;
+    
+
+    private void Start()
+    {
+        end = GetComponent<End>();
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
+
         if (other.CompareTag("Box"))
         {
             Box box = other.GetComponent<Box>();

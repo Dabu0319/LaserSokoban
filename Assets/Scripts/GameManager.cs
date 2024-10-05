@@ -39,6 +39,15 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
             ResetStage();
+        
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            LoadPreviousLevel();
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            LoadNextLevel();
+        }
 
     }
 
@@ -47,7 +56,7 @@ public class GameManager : MonoBehaviour
         Boxdisplay();
         if((destination == true) && (BadGays == true)){
             print("YOU WIN!");
-            // StartCoroutine(LoadNextStage());
+            StartCoroutine(LoadNextStage());
         }
     }
 
@@ -58,7 +67,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator LoadNextStage()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(0.1f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
@@ -78,5 +87,27 @@ public class GameManager : MonoBehaviour
         }else{
             endpoint.SetActive(false);
         }
+    }
+
+    public void LoadNextLevel()
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        int nextSceneIndex = currentSceneIndex + 1;
+        if (nextSceneIndex >= SceneManager.sceneCountInBuildSettings)
+        {
+            nextSceneIndex = 0; // Optionally wrap around to the first scene
+        }
+        SceneManager.LoadScene(nextSceneIndex);
+    }
+
+    public void LoadPreviousLevel()
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        int previousSceneIndex = currentSceneIndex - 1;
+        if (previousSceneIndex < 0)
+        {
+            previousSceneIndex = SceneManager.sceneCountInBuildSettings - 1; // Optionally wrap around to the last scene
+        }
+        SceneManager.LoadScene(previousSceneIndex);
     }
 }

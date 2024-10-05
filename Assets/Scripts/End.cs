@@ -11,7 +11,7 @@ public class End : MonoBehaviour
     private SpriteRenderer spriteRenderer; // 添加一个 SpriteRenderer 变量
     public GameManager gameManager;
   
-    private void Start()
+    private void Awake()
     {
         gameManager = GetComponent<GameManager>();
         spriteRenderer = GetComponent<SpriteRenderer>(); // 获取 SpriteRenderer 组件
@@ -52,7 +52,7 @@ public class End : MonoBehaviour
     public void DestroyEnd()
     {
         if (openend == false){
-        Invoke("ResetGameStage", 0.4f);  // 延迟1.0秒后调用ResetGameStage方法
+        Invoke("ResetGameStage", 0.5f);  // 延迟1.0秒后调用ResetGameStage方法
         Destroy(gameObject, 0.5f);
         }
     }
