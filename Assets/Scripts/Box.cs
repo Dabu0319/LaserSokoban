@@ -24,6 +24,7 @@ public class Box : MonoBehaviour
         {
             FindObjectOfType<GameManager>().finishedBoxs++;
             FindObjectOfType<GameManager>().CheckFinish();
+            FindObjectOfType<GameManager>().Boxdisplay();
             GetComponent<SpriteRenderer>().color = finishColor;
         }
     }
@@ -33,6 +34,7 @@ public class Box : MonoBehaviour
         if (collision.CompareTag("Target"))
         {
             FindObjectOfType<GameManager>().finishedBoxs--;
+            FindObjectOfType<GameManager>().Boxdisplay();
             GetComponent<SpriteRenderer>().color = originColor;
         }
     }

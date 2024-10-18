@@ -1279,6 +1279,36 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 236822525619318116, guid: f7c09feeea4b1d949ab15723857c1589,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4340134490914986316, guid: f7c09feeea4b1d949ab15723857c1589,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4980053303480170064, guid: f7c09feeea4b1d949ab15723857c1589,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137153712116533648, guid: f7c09feeea4b1d949ab15723857c1589,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5724765293778395545, guid: f7c09feeea4b1d949ab15723857c1589,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5724765293778395545, guid: f7c09feeea4b1d949ab15723857c1589,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6683180146138066984, guid: f7c09feeea4b1d949ab15723857c1589,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1329,13 +1359,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7421533117785898318, guid: f7c09feeea4b1d949ab15723857c1589,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9176597540307185244, guid: f7c09feeea4b1d949ab15723857c1589,
         type: 3}
       propertyPath: m_Name
       value: Refraction Box
       objectReference: {fileID: 0}
+    - target: {fileID: 9176597540307185244, guid: f7c09feeea4b1d949ab15723857c1589,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9176597540307185244, guid: f7c09feeea4b1d949ab15723857c1589,
+        type: 3}
+      propertyPath: m_TagString
+      value: IronBox
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 844875856592138408, guid: f7c09feeea4b1d949ab15723857c1589, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7c09feeea4b1d949ab15723857c1589, type: 3}
@@ -1347,6 +1393,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 236822525619318116, guid: f7c09feeea4b1d949ab15723857c1589,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137153712116533648, guid: f7c09feeea4b1d949ab15723857c1589,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6683180146138066984, guid: f7c09feeea4b1d949ab15723857c1589,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1402,8 +1458,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Refraction Box (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 9176597540307185244, guid: f7c09feeea4b1d949ab15723857c1589,
+        type: 3}
+      propertyPath: m_TagString
+      value: IronBox
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 844875856592138408, guid: f7c09feeea4b1d949ab15723857c1589, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7c09feeea4b1d949ab15723857c1589, type: 3}

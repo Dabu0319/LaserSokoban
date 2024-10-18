@@ -19,4 +19,39 @@ public class Target : MonoBehaviour
     {
         
     }
+
+
+    //     private void OnTriggerEnter2D(Collider2D collision)
+    // {
+    //     if(collision.CompareTag("IronBox"))
+    //     {
+    //         FindObjectOfType<GameManager>().finishedBoxs++;
+    //         FindObjectOfType<GameManager>().CheckFinish();
+    //         // GetComponent<SpriteRenderer>().color = finishColor;
+    //     }
+
+    //     if(collision.CompareTag("Box"))
+    //     {
+    //         FindObjectOfType<GameManager>().finishedBoxs++;
+    //         FindObjectOfType<GameManager>().CheckFinish();
+    //         // GetComponent<SpriteRenderer>().color = finishColor;
+    //     }
+    // }
+
+    // private void OnTriggerExit2D(Collider2D collision)
+    // {
+    //     if (collision.CompareTag("IronBox"))
+    //     {
+    //         FindObjectOfType<GameManager>().finishedBoxs--;
+    //         // GetComponent<SpriteRenderer>().color = originColor;
+    //     }
+
+    //     if (collision.CompareTag("Box"))
+    //     {
+    //         FindObjectOfType<GameManager>().finishedBoxs--;
+    //         // GetComponent<SpriteRenderer>().color = originColor;
+    //     }
+    // }
+
+    
 }
