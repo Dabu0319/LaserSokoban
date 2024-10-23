@@ -57,10 +57,14 @@ public class PlayerController : MonoBehaviour
             return true;
         else
         {
-            if (hit.collider.GetComponent<Box>() != null)
+            if (hit.collider.GetComponent<Box>() != null){
                 return hit.collider.GetComponent<Box>().CanMoveToDir(dir);
+            }
+            else if (hit.collider.GetComponent<ReflectMove>() != null)
+            {
+                return hit.collider.GetComponent<ReflectMove>().CanMoveToDir(dir);
+            }
         }
-
         return false;
     }
 

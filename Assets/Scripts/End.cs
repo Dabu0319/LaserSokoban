@@ -16,6 +16,10 @@ public class End : MonoBehaviour
         gameManager = GetComponent<GameManager>();
         spriteRenderer = GetComponent<SpriteRenderer>(); // 获取 SpriteRenderer 组件
     }
+
+    public void Start(){
+        OpenColor();
+    }
     
 
 

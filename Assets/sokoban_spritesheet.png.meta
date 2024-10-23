@@ -403,7 +403,7 @@ TextureImporter:
         width: 65
         height: 62
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -411,6 +411,27 @@ TextureImporter:
       bones: []
       spriteID: 27f43cd6a17e1504fa7ee12724806722
       internalID: -509196559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sokoban_spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 406
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47f94356d2efdbb48be4ade0b88f6bea
+      internalID: -1631610462
       vertices: []
       indices: 
       edges: []
@@ -430,6 +451,7 @@ TextureImporter:
       sokoban_spritesheet_1: 21300002
       sokoban_spritesheet_10: -1891685713
       sokoban_spritesheet_11: -509196559
+      sokoban_spritesheet_12: -1631610462
       sokoban_spritesheet_2: 21300004
       sokoban_spritesheet_3: 21300006
       sokoban_spritesheet_4: 21300008

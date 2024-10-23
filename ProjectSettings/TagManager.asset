@@ -12,6 +12,7 @@ TagManager:
   - Refractive
   - BadPeople
   - Good People
+  - reflect
   layers:
   - Default
   - TransparentFX

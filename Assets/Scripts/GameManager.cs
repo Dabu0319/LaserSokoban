@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Scripting;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,7 +14,6 @@ public class GameManager : MonoBehaviour
     public int finishBadPeople;
     public bool BadGays = false;
     
-
     public void Start()
     {
         endpoint = GameObject.Find("End");
@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
         {
             LoadNextLevel();
         }
-
+        FindObjectOfType<End>().OpenColor();
     }
 
     public void CheckFinish()

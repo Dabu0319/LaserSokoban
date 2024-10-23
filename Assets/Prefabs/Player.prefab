@@ -76,7 +76,7 @@ LineRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 4
   m_Positions:
   - {x: 0, y: 0, z: 0}
   - {x: 10, y: 0, z: 1}
@@ -159,7 +159,7 @@ MonoBehaviour:
     m_Bits: 1792
   triggerPrefab: {fileID: 7771284809588762506, guid: 8d742ea32bcc3654fbd5f21131bc1418,
     type: 3}
-  initialDirection: 0
+  initialDirection: 1
 --- !u!68 &6502627043431749096
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -213,6 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1e6060be615d0a42954b5110f4a3e49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  end: {fileID: 0}
 --- !u!1 &6556373268839623257
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,8 +292,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: ab73b148b99534b4e9b4f7c683212cbb, type: 3}
+  m_SortingOrder: 4
+  m_Sprite: {fileID: -2112947136, guid: f16a8c83760a1c340bbe83fd443e0a49, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -335,18 +336,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.0021010637, y: 0.010505378}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.71875, y: 0.84375}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 0.71875, y: 0.84375}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5}
+  m_Size: {x: 0.7059057, y: 0.84877884}
   m_EdgeRadius: 0
 --- !u!50 &1729766526664608655
 Rigidbody2D:
@@ -406,7 +407,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6556373268839623257}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 4eec29f98670c074aa5c88c3b96c57e9, type: 2}
   m_CullingMode: 0
