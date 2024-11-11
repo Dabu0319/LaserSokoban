@@ -17,7 +17,7 @@ public class BadPeople : MonoBehaviour
     public void DestroyBadPeople()
     {
         FindObjectOfType<GameManager>().finishBadPeople--;
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
 }

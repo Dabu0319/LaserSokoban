@@ -32,7 +32,7 @@ public class LaserController : MonoBehaviour
             transform.right = currentDirection;
         }
 
-        Vector2 start = (Vector2)player.position + currentDirection * 0.2f;
+        Vector2 start = (Vector2)player.position + currentDirection * 0.3f;
         ClearTriggers();
         UpdateLaserAndTrigger(start, currentDirection, maxDistance, 0);
     }

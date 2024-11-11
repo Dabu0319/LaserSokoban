@@ -12,7 +12,9 @@ public class GameManager : MonoBehaviour
     private GameObject endpoint;
     public int totalBadPeople;    
     public int finishBadPeople;
-    public bool BadGays = false;
+    public bool BadGuys = false;
+    public bool isPaused = false;
+    public bool fail = false;
     
     public void Start()
     {
@@ -37,8 +39,10 @@ public class GameManager : MonoBehaviour
     
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
-            ResetStage();
+    if (Input.GetKeyDown(KeyCode.R))
+    {
+        ResetStage(); // 游戏恢复后重置阶段
+    }
         
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
@@ -54,7 +58,7 @@ public class GameManager : MonoBehaviour
     public void CheckFinish()
     {
         Boxdisplay();
-        if((destination == true) && (BadGays == true)){
+        if((destination == true) && (BadGuys == true)){
             print("YOU WIN!");
             StartCoroutine(LoadNextStage());
         }
@@ -62,7 +66,10 @@ public class GameManager : MonoBehaviour
 
     public void ResetStage()
     {
+        SetPause(false);
+        fail = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        FindObjectOfType<MenuController>().FailUI.SetActive(false);
     }
 
     IEnumerator LoadNextStage()
@@ -73,9 +80,9 @@ public class GameManager : MonoBehaviour
 
     public void BadPeoplezero(){
         if (finishBadPeople == 0){
-            BadGays = true;
+            BadGuys = true;
         }else{
-            BadGays = false;
+            BadGuys = false;
         }
 
     }
@@ -109,5 +116,21 @@ public class GameManager : MonoBehaviour
             previousSceneIndex = SceneManager.sceneCountInBuildSettings - 1; // Optionally wrap around to the last scene
         }
         SceneManager.LoadScene(previousSceneIndex);
+    }
+
+    public void SetPause(bool pauseStatus)
+    {
+        isPaused = pauseStatus;
+
+        // 设置时间流逝速度
+        Time.timeScale = isPaused ? 0 : 1;
+
+        // 可以在这里加入其他对游戏暂停状态的处理
+        // 例如，显示暂停菜单，禁用某些游戏输入等
+    }
+
+    public bool IsPaused()
+    {
+        return isPaused;
     }
 }

@@ -13,6 +13,7 @@ TagManager:
   - BadPeople
   - Good People
   - reflect
+  - TrackedObject
   layers:
   - Default
   - TransparentFX
@@ -49,4 +50,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Target
+    uniqueID: 3509152785
+    locked: 0
+  - name: New Layer 2
+    uniqueID: 533041697
     locked: 0

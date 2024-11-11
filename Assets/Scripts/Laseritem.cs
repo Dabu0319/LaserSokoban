@@ -33,7 +33,7 @@ public class Laseritem : MonoBehaviour
             End end = other.GetComponent<End>();
             if (end != null)
             {
-                end.DestroyEnd();
+                end.SetActiveEnd();
             }
         }
 
@@ -44,7 +44,7 @@ public class Laseritem : MonoBehaviour
             if (goodPeople != null)
             {
                 goodPeople.DestroyGoodPeople();
-                FindObjectOfType<GameManager>().ResetStage();
+
             }
         }
 

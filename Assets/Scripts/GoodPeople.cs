@@ -6,7 +6,8 @@ public class GoodPeople : MonoBehaviour
 {
     public void DestroyGoodPeople()
     {
-        Destroy(gameObject, 0.5f); // 1f 表示延迟 1 秒
-
+        gameObject.SetActive(false);
+        FindObjectOfType<GameManager>().fail=true;
+        FindObjectOfType<MenuController>().FailGame();
     }
 }

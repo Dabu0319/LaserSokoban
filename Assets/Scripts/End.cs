@@ -23,7 +23,26 @@ public class End : MonoBehaviour
     
 
 
-    void OnTriggerEnter2D(Collider2D other)
+    // void OnTriggerEnter2D(Collider2D other)
+    // {
+    //     // 检查触碰的物体是否属于Player
+    //     if (other.CompareTag("Player"))
+    //     {
+    //         openend = true;
+    //         var gameManager = FindObjectOfType<GameManager>();
+    //         if (gameManager != null)
+    //         {
+    //             gameManager.destination = true;
+    //             gameManager.CheckFinish();
+    //         }
+    //         else
+    //         {
+    //             Debug.LogError("GameManager not found in the scene.");
+    //         }
+    //     }
+    // }
+
+        void OnTriggerStay2D(Collider2D other)
     {
         // 检查触碰的物体是否属于Player
         if (other.CompareTag("Player"))
@@ -53,24 +72,19 @@ public class End : MonoBehaviour
         }
     }
 
-    public void DestroyEnd()
+    public void SetActiveEnd()
     {
         if (openend == false){
-        Invoke("ResetGameStage", 0.5f);  // 延迟1.0秒后调用ResetGameStage方法
-        Destroy(gameObject, 0.5f);
+        FindObjectOfType<MenuController>().FailGame();
+        // gameObject.SetActive(false);  // 直接隐藏游戏对象
+        FindObjectOfType<GameManager>().fail=true;
         }
     }
 
-    private void ResetGameStage()
-{
-    FindObjectOfType<GameManager>().ResetStage();  // 调用GameManager中的ResetStage方法
-}
-
-
     public void OpenColor(){
         var gameManager = FindObjectOfType<GameManager>();
-        Debug.Log(gameManager.BadGays);
-        if(FindObjectOfType<GameManager>().BadGays == false){
+        Debug.Log(gameManager.BadGuys);
+        if(FindObjectOfType<GameManager>().BadGuys == false){
             spriteRenderer.sprite = newSprite;
         }else{
             spriteRenderer.sprite = initialSprite;
