@@ -1163,6 +1163,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5921235077204791476, guid: 9361f6634ee4ab34a902c4fc8832330f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1585,11 +1590,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3782956629793640289, guid: ce0865dd46c7db64a848e465805dfbae,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3957927202959094273, guid: ce0865dd46c7db64a848e465805dfbae,
         type: 3}
       propertyPath: FailUI
       value: 
       objectReference: {fileID: 332941183}
+    - target: {fileID: 4483118313356219013, guid: ce0865dd46c7db64a848e465805dfbae,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5120118285590562477, guid: ce0865dd46c7db64a848e465805dfbae,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1696,7 +1711,8 @@ PrefabInstance:
       value: Canvas
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2575554011729262518, guid: ce0865dd46c7db64a848e465805dfbae, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce0865dd46c7db64a848e465805dfbae, type: 3}
@@ -1863,8 +1879,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 0}
   FailUI: {fileID: 0}
-  settingsPanel: {fileID: 0}
-  volumeSlider: {fileID: 0}
 --- !u!114 &1099681101
 MonoBehaviour:
   m_ObjectHideFlags: 0

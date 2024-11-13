@@ -8,8 +8,8 @@ public class MenuController : MonoBehaviour
 {
     public GameObject pauseMenuUI;
     public GameObject FailUI;
-    public GameObject settingsPanel; // 在 Inspector 中分配
-    public Slider volumeSlider; // 在 Inspector 中分配
+    // public GameObject settingsPanel; // 在 Inspector 中分配
+    // public Slider volumeSlider; // 在 Inspector 中分配
     public void StartGame()
     {
         // 加载游戏主场景
@@ -23,10 +23,10 @@ public class MenuController : MonoBehaviour
     }
 
     // 显示或隐藏设置面板
-    public void ToggleSettings()
-    {
-        settingsPanel.SetActive(!settingsPanel.activeSelf);
-    }
+    // public void ToggleSettings()
+    // {
+    //     settingsPanel.SetActive(!settingsPanel.activeSelf);
+    // }
 
     // Update is called once per frame
 
@@ -78,16 +78,22 @@ public class MenuController : MonoBehaviour
         Application.Quit();
     }
 
-    public void FailGame(){
-            if (FailUI.activeSelf)
-            {
-            }
-            else
-            {
-                FailUI.SetActive(true);
-            }
-        Debug.Log("FailGame method called");
-        FindObjectOfType<GameManager>().SetPause(true);
+public void FailGame()
+{
+    Debug.Log("FailGame method called");
+    
+    // 检查 FailUI 是否已经分配
+    if (FailUI != null)
+    {
+        FailUI.SetActive(true); // 激活 FailUI 界面
     }
+    else
+    {
+        Debug.LogError("FailUI is not assigned in the inspector!");
+    }
+
+    // 设置游戏为暂停状态
+    FindObjectOfType<GameManager>().SetPause(true);
+}
 
 }

@@ -388,8 +388,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 0}
   FailUI: {fileID: 0}
-  settingsPanel: {fileID: 0}
-  volumeSlider: {fileID: 0}
 --- !u!114 &369101747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2365,6 +2363,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 861641486}
+    - target: {fileID: 1373023210729488135, guid: ce0865dd46c7db64a848e465805dfbae,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadMainMenu
       objectReference: {fileID: 0}
     - target: {fileID: 1781376562739907390, guid: ce0865dd46c7db64a848e465805dfbae,
         type: 3}
@@ -2372,11 +2375,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: eeaa3e3cc8f93f349aad1b3868fe5240,
         type: 3}
+    - target: {fileID: 3782956629793640289, guid: ce0865dd46c7db64a848e465805dfbae,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3957927202959094273, guid: ce0865dd46c7db64a848e465805dfbae,
         type: 3}
       propertyPath: FailUI
       value: 
       objectReference: {fileID: 333898226}
+    - target: {fileID: 4483118313356219013, guid: ce0865dd46c7db64a848e465805dfbae,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5120118285590562477, guid: ce0865dd46c7db64a848e465805dfbae,
         type: 3}
       propertyPath: m_Pivot.x
@@ -2481,6 +2494,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 861641486}
+    - target: {fileID: 7523662714343228975, guid: ce0865dd46c7db64a848e465805dfbae,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Resume
       objectReference: {fileID: 0}
     - target: {fileID: 8730273815021258938, guid: ce0865dd46c7db64a848e465805dfbae,
         type: 3}
@@ -2491,12 +2509,30 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 861641486}
+    - target: {fileID: 8776346160178176111, guid: ce0865dd46c7db64a848e465805dfbae,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: QuitGame
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2575554011729262518, guid: ce0865dd46c7db64a848e465805dfbae, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce0865dd46c7db64a848e465805dfbae, type: 3}
+--- !u!114 &861641486 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3957927202959094273, guid: ce0865dd46c7db64a848e465805dfbae,
+    type: 3}
+  m_PrefabInstance: {fileID: 861641485}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd2b07c2d317e3c47bdaa63de966bcdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1023383640
 GameObject:
   m_ObjectHideFlags: 0

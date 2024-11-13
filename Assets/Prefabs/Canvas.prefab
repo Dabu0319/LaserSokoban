@@ -151,7 +151,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2585539716782127091
 RectTransform:
   m_ObjectHideFlags: 0
@@ -465,8 +465,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 7205900147843010197}
-  settingsPanel: {fileID: 0}
-  volumeSlider: {fileID: 0}
+  FailUI: {fileID: 0}
 --- !u!1 &4483118313356219013
 GameObject:
   m_ObjectHideFlags: 0
@@ -484,7 +483,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3777548731758955463
 RectTransform:
   m_ObjectHideFlags: 0
@@ -725,7 +724,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 3957927202959094273}
         m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
         m_MethodName: QuitGame
         m_Mode: 1
@@ -858,7 +857,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 3957927202959094273}
         m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
         m_MethodName: Resume
         m_Mode: 1
@@ -1339,7 +1338,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 3957927202959094273}
         m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
         m_MethodName: LoadMainMenu
         m_Mode: 1
@@ -1580,7 +1579,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &5602659394886499570
 MonoBehaviour:
